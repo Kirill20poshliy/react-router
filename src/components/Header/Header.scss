@@ -4,33 +4,40 @@
     padding: 1rem;
     background-color: rgb(50, 50, 50);
     display: flex;
-    gap: 2rem;
     align-items: center;
-
-    .logo {
-        height: 2.5rem;
-        cursor: pointer;
-    }
-
-    nav {
+    justify-content: space-between;
+    
+    .navigate {
         display: flex;
-        gap: 1.5rem;
+        gap: 2rem;
         align-items: center;
 
-        .navlink {
-            color: #FFFFFF;
-            transition: all .25s ease-out;
-            text-decoration: none;
-            font-size: 1.25rem;
-            font-weight: 600;
-    
-            &.active {
-                color: #B2DF28;
-            }
+        .logo {
+            height: 2.5rem;
+            cursor: pointer;
+        }
 
-            &:hover {
-                opacity: .6;
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+    
+            .navlink {
+                color: #FFFFFF;
+                transition: all .25s ease-out;
+                text-decoration: none;
+                font-size: 1.25rem;
+                font-weight: 600;
+        
+                &.active {
+                    color: #B2DF28;
+                }
+    
+                &:hover {
+                    opacity: .6;
+                }
             }
         }
     }
+
 }

@@ -8,6 +8,8 @@ import { Episodes } from '../../pages/Episodes/Episodes'
 import CharacterPage from '../../pages/Characters/components/CharacterPage/CharacterPage'
 import LocationPage from '../../pages/Locations/components/LocationPage/LocationPage'
 import EpisodePage from '../../pages/Episodes/components/EpisodePage/EpisodePage'
+import RequireAuth from '../RequireAuth/RequireAuth'
+import Login from '../../pages/Login/Login'
 
 export const Router: FC = () => {
 	const navigate = useNavigate()
@@ -16,12 +18,15 @@ export const Router: FC = () => {
 		<Routes>
 			<Route path='/' element={<Layout />}>
 				<Route index element={<Home />}/>
-				<Route path='characters' element={<Characters />} />
-				<Route path='characters/:id' element={<CharacterPage />} />
-				<Route path='locations' element={<Locations />} />
-				<Route path='locations/:id' element={<LocationPage />} />
-				<Route path='episodes' element={<Episodes />} />
-				<Route path='episodes/:id' element={<EpisodePage />} />
+				<Route path='signin' element={<Login />} />
+				<Route element={<RequireAuth/>}>
+					<Route path='characters' element={<Characters />} />
+					<Route path='characters/:id' element={<CharacterPage />} />
+					<Route path='locations' element={<Locations />} />
+					<Route path='locations/:id' element={<LocationPage />} />
+					<Route path='episodes' element={<Episodes />} />
+					<Route path='episodes/:id' element={<EpisodePage />} />
+				</Route>
 				<Route path='*' element={
 					<div className='empty'>
 						<h1>404</h1>
