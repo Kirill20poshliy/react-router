@@ -1,0 +1,18 @@
+.episode-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #000000;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    .characteristics {
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+
+        >p {
+            font-size: 1.125rem;
+        }
+    }
+}
