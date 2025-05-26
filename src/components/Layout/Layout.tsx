@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, Suspense } from 'react'
 import './Layout.scss'
 import Header from '../Header/Header'
 import { Outlet } from 'react-router-dom'
@@ -8,7 +8,9 @@ const Layout: FC = () => {
         <div className='layout'>
             <Header/>
             <main className='main-content'>
-                <Outlet/>
+                <Suspense fallback={"Loading..."}>
+                    <Outlet/>
+                </Suspense>
             </main>
         </div>
     )

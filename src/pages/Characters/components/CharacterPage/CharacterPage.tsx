@@ -1,53 +1,47 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useCallback } from 'react'
 import './CharacterPage.scss'
 import { useNavigate, useParams } from 'react-router-dom'
-import characters from '../../../../mocks/characters.json'
 import dayjs from 'dayjs'
+import { useFetch } from '../../../../hooks/useFetch'
+import characterService from '../../../../api/characterService'
+import { ICharacter } from '../../../../models/character'
+import { AxiosResponse } from 'axios'
 
-interface ICharacter {
-    id: number,
-    name: string,
-    status: string,
-    species: string,
-    type: string,
-    gender: string,
-    image: string,
-    created: string
-}
 
 const CharacterPage: FC = () => {
     const { id } = useParams();
-    const [character, setCharacter] = useState<ICharacter>()
+
+    const fetchCharacter = useCallback(async (): Promise<AxiosResponse<ICharacter>> => {
+        if (!id) throw new Error('Character ID is missing');
+        const response = await characterService.getOne(id);
+        return response  
+    }, [id]);
+
+    const { isLoading, isError, data: character } = useFetch<ICharacter>(fetchCharacter);
 
     const navigate = useNavigate()
 
-    useEffect(() => {
-        if (id) {
-            setCharacter(characters.find(
-                character => character.id === Number(id)
-            ))
-        }
-    }, [id])
+    if (!id) return <p>Character ID is missing</p>;
+    if (isLoading) return <p>Loading...</p>;
+    if (isError) return <p>Failed to load character</p>;
+    if (!character) return <div className='empty'>
+        <p>Персонаж не найден...</p>
+        <button onClick={() => navigate(-1)} className='btn primary'>Назад</button>
+    </div>;
 
-    return character 
-        ? (
-            <div className='character-page'>
-                <img src={character.image} alt={character.name} />
-                <div className='characteristics'>
-                    <h2>{character.name}, {character.gender}</h2>
-                    <p>Статус: <b>{character.status}</b></p>
-                    <p>Разновидность: <b>{character.species}</b></p>
-                    {character.type && (<p>Тип: <b>{character.type}</b></p>)}
-                    <p>Создан(а): <b>{dayjs(character.created).format("DD.MM.YYYY HH:mm")}</b></p>
-                </div>
+    return (
+        <div className='character-page'>
+            <img src={character.image} alt={character.name} />
+            <div className='characteristics'>
+                <h2>{character.name}, {character.gender}</h2>
+                <p>Статус: <b>{character.status}</b></p>
+                <p>Разновидность: <b>{character.species}</b></p>
+                {character.type && (<p>Тип: <b>{character.type}</b></p>)}
+                <p>Создан(а): <b>{dayjs(character.created).format("DD.MM.YYYY HH:mm")}</b></p>
             </div>
-        )
-        : (
-            <div className='empty'>
-                <p>Персонаж не найден...</p>
-                <button onClick={() => navigate(-1)} className='btn primary'>Назад</button>
-            </div>
-        )
+        </div>
+    )
+        
 }
 
 export default CharacterPage
