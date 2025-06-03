@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import './Header.scss'
-import { menuConfig } from '../../config/menuConfig'
+import { menuConfig } from '@config/menuConfig'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
-import { useAuthContext } from '../../context/AuthContext'
+import { useAuthContext } from '@context/AuthContext'
 import logo from '../../assets/Rick_and_Morty.svg.png'
 
 const Header: FC = () => {

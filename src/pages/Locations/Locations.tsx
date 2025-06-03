@@ -2,7 +2,7 @@ import { FC, useCallback } from 'react'
 import { LocationCard } from './components/LocationCard/LocationCard'
 import { useSearchParams } from 'react-router-dom'
 import locationService from '../../api/locationService'
-import { ILocationInfo } from '../../models/location'
+import { ILocationInfo } from '../../shared/models/location'
 import { useInfinityScroll } from '../../hooks/useInfinityScroll'
 
 export const Locations: FC = () => {

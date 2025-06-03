@@ -3,7 +3,7 @@ import { CharacterCard } from './components/CharacterCard/CharacterCard'
 import { useSearchParams } from 'react-router-dom'
 import characterService from '../../api/characterService'
 import { useInfinityScroll } from '../../hooks/useInfinityScroll'
-import { ICharacter } from '../../models/character'
+import { ICharacter } from '../../shared/models/character'
 
 export const Characters: FC = () => {
 

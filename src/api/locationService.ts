@@ -1,6 +1,6 @@
 import { AxiosError } from "axios"
 import { api } from "./api"
-import { ILocationInfo, ILocationsPage } from "../models/location"
+import { ILocationInfo, ILocationsPage } from "../shared/models/location"
 
 class LocationService {
     async getAllFromPage(page: number) {

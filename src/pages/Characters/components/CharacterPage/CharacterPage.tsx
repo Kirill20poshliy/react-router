@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import dayjs from 'dayjs'
 import { useFetch } from '../../../../hooks/useFetch'
 import characterService from '../../../../api/characterService'
-import { ICharacter } from '../../../../models/character'
+import { ICharacter } from '../../../../shared/models/character'
 import { AxiosResponse } from 'axios'
 
 

@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react';
 import { EpisodeCard } from './components/EpisodeCard/EpisodeCard';
 import { useSearchParams } from 'react-router-dom';
-import { IEpisode } from '../../models/episode';
+import { IEpisode } from '../../shared/models/episode';
 import episodeService from '../../api/episodeService';
 import { useInfinityScroll } from '../../hooks/useInfinityScroll';
 

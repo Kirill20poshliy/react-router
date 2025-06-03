@@ -1,6 +1,6 @@
 import { AxiosError } from "axios"
 import { api } from "./api"
-import { ICharacter, ICharactersPage } from "../models/character"
+import { ICharacter, ICharactersPage } from "../shared/models/character"
 
 class CharacterService {
     async getAllFromPage(page: number) {

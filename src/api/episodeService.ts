@@ -1,6 +1,6 @@
 import { AxiosError } from "axios"
 import { api } from "./api"
-import { IEpisode, IEpisodesPage } from "../models/episode"
+import { IEpisode, IEpisodesPage } from "../shared/models/episode"
 
 class EpisodeService {
     async getAllFromPage(page: number) {

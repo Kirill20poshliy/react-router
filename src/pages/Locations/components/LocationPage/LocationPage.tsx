@@ -3,7 +3,7 @@ import './LocationPage.scss'
 import { useNavigate, useParams } from 'react-router-dom'
 import dayjs from 'dayjs'
 import { AxiosResponse } from 'axios'
-import { ILocationInfo } from '../../../../models/location'
+import { ILocationInfo } from '../../../../shared/models/location'
 import locationService from '../../../../api/locationService'
 import { useFetch } from '../../../../hooks/useFetch'
 

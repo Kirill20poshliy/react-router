@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useAuthContext } from '../../context/AuthContext'
+import { useAuthContext } from '@context/AuthContext'
 import { Navigate, Outlet } from 'react-router-dom'
 
 const RequireAuth: FC = () => {
