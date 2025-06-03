@@ -1,0 +1,45 @@
+.nav-btn {
+    padding: .75rem;
+    background-color: #00B5CC;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: .25rem;
+    font-weight: bold;
+
+    &:hover {
+        opacity: .75;
+    }
+
+    &:active {
+        opacity: .5;
+    }
+}
+
+.btn {
+    padding: .75rem;
+    border-radius: .5rem;
+    border: 0;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &.primary {
+        background-color: #00B5CC;
+        color: #FFFFFF;
+    }
+
+    &.secondary {
+        color: #606060;
+    }
+
+    &:active {
+        opacity: .6;
+    }
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
