@@ -6,6 +6,7 @@ import { IEpisode } from '../../../../shared/models/episode'
 import { AxiosResponse } from 'axios'
 import episodeService from '../../../../api/episodeService'
 import { useFetch } from '../../../../hooks/useFetch'
+import { Flex } from 'antd'
 
 const EpisodePage: FC = () => {
     const { id } = useParams();
@@ -29,13 +30,13 @@ const EpisodePage: FC = () => {
     </div>;
 
     return (
-        <div className='character-page'>
-            <div className='characteristics'>
+        <Flex gap={"2rem"} className='episode-page'>
+            <Flex vertical gap={".25rem"} className='characteristics'>
                 <h2>{episode.name}, {episode.episode}</h2>
                 <p>Дата выхода: <b>{episode.air_date}</b></p>
                 <p>Создан(а): <b>{dayjs(episode.created).format("DD.MM.YYYY HH:mm")}</b></p>
-            </div>
-        </div>
+            </Flex>
+        </Flex>
     )
 }
 

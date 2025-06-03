@@ -1,16 +1,9 @@
 .character-page {
-    display: flex;
-    gap: 2rem;
-
     img {
         border-radius: .5rem;
     }
 
     .characteristics {
-        display: flex;
-        flex-direction: column;
-        gap: .25rem;
-
         >p {
             font-size: 1.125rem;
         }

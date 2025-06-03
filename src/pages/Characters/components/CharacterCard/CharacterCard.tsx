@@ -2,6 +2,7 @@ import { FC } from 'react'
 import './CharacterCard.scss'
 import { useNavigate } from 'react-router-dom'
 import dayjs from 'dayjs'
+import { Flex } from 'antd'
 
 export const CharacterCard: FC<{
     id: number,
@@ -15,16 +16,16 @@ export const CharacterCard: FC<{
 }> = ({id, name, status, species, type, gender, image, created}) => {
     const navigate = useNavigate()
     return (
-        <div onClick={() => navigate(`${id}`)} className='character-card'>
+        <Flex gap={"1rem"} onClick={() => navigate(`${id}`)} className='character-card'>
             <img src={image} alt={name} />
-            <div className='characteristics'>
+            <Flex vertical gap={".25rem"} className='characteristics'>
                 <h2>{name}, {gender}</h2>
                 <p>Статус: <b>{status}</b></p>
                 <p>Разновидность: <b>{species}</b></p>
                 {type && (<p>Тип: <b>{type}</b></p>)}
                 <p>Создан(а): <b>{dayjs(created).format("DD.MM.YYYY HH:mm")}</b></p>
-            </div>
-        </div>
+            </Flex>
+        </Flex>
     )
 }
 

@@ -6,6 +6,7 @@ import { AxiosResponse } from 'axios'
 import { ILocationInfo } from '../../../../shared/models/location'
 import locationService from '../../../../api/locationService'
 import { useFetch } from '../../../../hooks/useFetch'
+import { Flex } from 'antd'
 
 const LocationPage: FC = () => {
     const { id } = useParams();
@@ -29,13 +30,13 @@ const LocationPage: FC = () => {
     </div>;
 
     return (
-        <div className='character-page'>
-            <div className='characteristics'>
+        <Flex gap={"2rem"} className='location-page'>
+            <Flex vertical gap={".25rem"} className='characteristics'>
                 <h2>{location.name}, {location.dimension}</h2>
                 {location.type && (<p>Тип: <b>{location.type}</b></p>)}
                 <p>Создан(а): <b>{dayjs(location.created).format("DD.MM.YYYY HH:mm")}</b></p>
-            </div>
-        </div>
+            </Flex>
+        </Flex>
     )
 }
 

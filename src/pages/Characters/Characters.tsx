@@ -4,6 +4,8 @@ import { useSearchParams } from 'react-router-dom'
 import characterService from '../../api/characterService'
 import { useInfinityScroll } from '../../hooks/useInfinityScroll'
 import { ICharacter } from '../../shared/models/character'
+import { Flex, Spin } from 'antd'
+import { LoadingOutlined } from '@ant-design/icons';
 
 export const Characters: FC = () => {
 
@@ -36,7 +38,7 @@ export const Characters: FC = () => {
     }
 
     return (
-        <div className='list'>
+        <Flex vertical gap=".5rem">
             <div>
                 <button 
                     className='btn secondary'
@@ -60,10 +62,10 @@ export const Characters: FC = () => {
                 ))
             }
             <div ref={triggerRef} style={{ height: '20px' }} />
-            {isLoading && <div>Loading...</div>}
+            {isLoading && <Spin indicator={<LoadingOutlined spin />} size="large" />}
             {!hasMore && !isLoading && (
                 <div>No more characters to load.</div>
             )}
-        </div>
+        </Flex>
     )
 }

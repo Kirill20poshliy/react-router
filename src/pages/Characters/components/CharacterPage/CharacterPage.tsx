@@ -6,6 +6,7 @@ import { useFetch } from '../../../../hooks/useFetch'
 import characterService from '../../../../api/characterService'
 import { ICharacter } from '../../../../shared/models/character'
 import { AxiosResponse } from 'axios'
+import { Flex } from 'antd'
 
 
 const CharacterPage: FC = () => {
@@ -30,16 +31,16 @@ const CharacterPage: FC = () => {
     </div>;
 
     return (
-        <div className='character-page'>
+        <Flex gap={"2rem"} className='character-page'>
             <img src={character.image} alt={character.name} />
-            <div className='characteristics'>
+            <Flex vertical gap={".25rem"} className='characteristics'>
                 <h2>{character.name}, {character.gender}</h2>
                 <p>Статус: <b>{character.status}</b></p>
                 <p>Разновидность: <b>{character.species}</b></p>
                 {character.type && (<p>Тип: <b>{character.type}</b></p>)}
                 <p>Создан(а): <b>{dayjs(character.created).format("DD.MM.YYYY HH:mm")}</b></p>
-            </div>
-        </div>
+            </Flex>
+        </Flex>
     )
         
 }
